@@ -1,0 +1,10 @@
+spring.datasource.url=jdbc:postgresql://localhost:5432/calorie_tracker
+spring.datasource.username=your_username
+spring.datasource.password=your_password
+spring.datasource.driver-class-name=org.postgresql.Driver
+
+spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+
+---> Замени your_username и your_password на реальные данные для PostgreSQL.
