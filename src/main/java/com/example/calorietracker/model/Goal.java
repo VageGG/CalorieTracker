@@ -1,5 +1,5 @@
 package com.example.calorietracker.model;
 
-enum Goal {
+public enum Goal {
     WEIGHT_LOSS, MAINTENANCE, WEIGHT_GAIN
 }
