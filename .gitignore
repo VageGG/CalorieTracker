@@ -4,4 +4,3 @@
 *.iml
 *.ipr
 /src/main/resources/application.properties
-/src/test/resources/application-test.properties

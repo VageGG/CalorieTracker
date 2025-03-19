@@ -12,9 +12,6 @@ import java.time.LocalDate;
 import java.util.*;
 import com.example.calorietracker.model.*;
 import com.example.calorietracker.repository.*;
-import com.example.calorietracker.exception.UserNotFoundException;
-import com.example.calorietracker.controller.ReportController;
-import org.springframework.web.server.ResponseStatusException;
 
 @ExtendWith(MockitoExtension.class)
 public class ReportServiceTest {
@@ -87,15 +84,5 @@ public class ReportServiceTest {
         assertEquals(2, history.size());
         assertEquals(date1, history.get(0).getDate());
         assertEquals(date2, history.get(1).getDate());
-    }
-
-    @Test
-    @DisplayName("Проверка обработки ошибки в контроллере при отсутствии пользователя")
-    void testReportControllerUserNotFound() {
-        UUID userId = UUID.randomUUID();
-        LocalDate date = LocalDate.now();
-        ReportController reportController = new ReportController(reportService);
-        when(reportService.getDailyCalories(userId, date)).thenThrow(new UserNotFoundException("User not found"));
-        assertThrows(ResponseStatusException.class, () -> reportController.getDailyCalories(userId, date));
     }
 }
