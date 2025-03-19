@@ -2,6 +2,8 @@ package com.example.calorietracker.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
@@ -27,4 +29,6 @@ public class Meal {
             inverseJoinColumns = @JoinColumn(name = "dish_id")
     )
     private List<Dish> dishes;
+
+    private LocalDate date;
 }
