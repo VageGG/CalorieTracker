@@ -1,0 +1,105 @@
+{
+  "info": {
+    "name": "Calorie Tracker API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Create User",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "url": "{{baseUrl}}/api/users",
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\": \"Ivan Ivanov\", \"email\": \"ivanov@example.com\", \"age\": 30, \"weight\": 75, \"height\": 175, \"goal\": \"MAINTENANCE\"}"
+            }
+          }
+        },
+        {
+          "name": "Get User",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/users/{{userId}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Dishes",
+      "item": [
+        {
+          "name": "Add Dish",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "url": "{{baseUrl}}/api/dishes",
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\": \"Apple\", \"calories\": 95, \"proteins\": 0.5, \"fats\": 0.3, \"carbs\": 25}"
+            }
+          }
+        },
+        {
+          "name": "Get All Dishes",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/dishes"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Meals",
+      "item": [
+        {
+          "name": "Add Meal",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "url": "{{baseUrl}}/api/meals",
+            "body": {
+              "mode": "raw",
+              "raw": "{\"userId\": \"{{userId}}\", \"dishes\": [{\"id\": \"{{dishId}}\"}], \"date\": \"2025-03-18\"}"
+            }
+          }
+        },
+        {
+          "name": "Get Meal History",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/meals/history/{{userId}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Reports",
+      "item": [
+        {
+          "name": "Get Daily Calories",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/reports/daily/{{userId}}"
+          }
+        },
+        {
+          "name": "Check Calorie Limit",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/reports/limit/{{userId}}"
+          }
+        }
+      ]
+    }
+  ]
+}
